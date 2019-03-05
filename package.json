@@ -1,0 +1,14 @@
+{
+  "name": "express-domain-logic",
+  "version": "0.0.1",
+  "description": "differing implementations of domain logic in Express",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "akuny",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
