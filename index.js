@@ -1,3 +1,16 @@
-const app = require('./app/app-phase-one');
+const { version } = require('./config');
 
-app.server.listen(3000, () => console.log('Server listening on port 3000'));
+getVersion = version => {
+  switch (version) {
+    case 'TRANSACTION_SCRIPT':
+      return './app/app-transaction-script';
+    case 'DOMAIN_MODEL':
+      return './app/app-domain-model';
+  }
+};
+
+const { server } = require(getVersion(version));
+
+server.listen(3000, () =>
+  console.log(`Server using ${version} listening on port 3000`)
+);

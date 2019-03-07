@@ -1,8 +1,8 @@
 const request = require('supertest');
-const { server } = require('../app/app-phase-one');
+const { server } = require('../app/app-transaction-script');
 const { mockJobPosting, mockJobPostingToUpdate } = require('./mocks');
 
-describe('route integration tests', () => {
+describe('transaction script route integration tests', () => {
   test('GET /job-posting', done => {
     request(server)
       .get('/job-posting')
