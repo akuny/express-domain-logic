@@ -4,11 +4,16 @@
   "description": "differing implementations of domain logic in Express",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "start": "node index-phase-one.js",
+    "test": "jest"
   },
   "author": "akuny",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "jest": "^24.1.0",
+    "supertest": "^3.4.2"
   }
 }
