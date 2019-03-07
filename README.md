@@ -10,7 +10,7 @@ run it, install dependencies and start it up.
 
 ```
 $ npm i
-node .
+$ node .
 ```
 
 The application will open in Transaction Script mode by default;
