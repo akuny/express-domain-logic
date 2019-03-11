@@ -6,15 +6,18 @@ module.exports = {
     database.push(jobPosting);
     cb(null, jobPosting);
   },
+
   getAllJobPostings(cb) {
     cb(null, database);
   },
+
   getOneJobPosting(id, cb) {
     const requestedJobPosting = database.find(obj => {
       return obj.id === id;
     });
     cb(null, requestedJobPosting);
   },
+
   updateJobPosting(jobPosting, id, cb) {
     let idSearch = (id, array) => {
       for (let i = 0; i < array.length; i++) {
@@ -28,6 +31,7 @@ module.exports = {
     database.splice(indexToChange, 1, jobPosting);
     cb(null, jobPosting);
   },
+
   deleteJobPosting(id, cb) {
     for (let i = 0; i < database.length - 1; i++) {
       if (database[i] === id) {
@@ -37,6 +41,7 @@ module.exports = {
     delete (database, id);
     cb(null, 'Job posting deleted');
   },
+
   getDatabase() {
     return database;
   }

@@ -5,5 +5,5 @@ module.exports = {
    * of the application you'd like to.
    */
 
-  version: 'TRANSACTION_SCRIPT'
+  version: 'TRANSACTION_SCRIPT_PHASE_TWO'
 };

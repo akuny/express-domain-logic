@@ -2,8 +2,10 @@ const { version } = require('./config');
 
 getVersion = version => {
   switch (version) {
-    case 'TRANSACTION_SCRIPT':
-      return './app/app-transaction-script';
+    case 'TRANSACTION_SCRIPT_PHASE_ONE':
+      return './app/app-transaction-script-phase-one';
+    case 'TRANSACTION_SCRIPT_PHASE_TWO':
+      return './app/app-transaction-script-phase-two';
     case 'DOMAIN_MODEL':
       return './app/app-domain-model';
   }

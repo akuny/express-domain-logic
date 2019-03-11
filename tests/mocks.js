@@ -41,9 +41,33 @@ const mockUpdatedDatabase = [
   }
 ];
 
+mockJobPostingWithOrgWithFeatured = {
+  id: 999,
+  title: 'VP of Minions',
+  company: 'Dynamic Systems Incorporated',
+  description: 'Let the games begin',
+  contact: 'boss@example.com',
+  organization: {
+    type: 'gold'
+  }
+};
+
+mockJobPostingWithOrgWithoutFeatured = {
+  id: 999,
+  title: 'VP of Minions',
+  company: 'Dynamic Systems Incorporated',
+  description: 'Let the games begin',
+  contact: 'boss@example.com',
+  organization: {
+    type: 'normal'
+  }
+};
+
 module.exports = {
   mockDatabase,
   mockJobPosting,
   mockJobPostingToUpdate,
-  mockUpdatedDatabase
+  mockUpdatedDatabase,
+  mockJobPostingWithOrgWithFeatured,
+  mockJobPostingWithOrgWithoutFeatured
 };
