@@ -1,10 +1,10 @@
 module.exports = {
   checkJobPosting(input, cb) {
     if (!input) {
-      cb('There is no input');
+      return cb('There is no input');
     }
 
-    cb(null, input);
+    return cb(null, input);
   },
 
   countFeaturedPosts(input, cb) {
@@ -12,6 +12,10 @@ module.exports = {
      * Imagine we're dipping into the database to pull the number of featured
      * posts remaining for this organization this month
      */
-    cb(null, true, input);
+    console.log(input.organization.featuredRemaining);
+    if (input.organization.featuredRemaining > 0) {
+      return cb(null, true, input);
+    }
+    return cb('No features left', false);
   }
 };

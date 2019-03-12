@@ -1,10 +1,10 @@
 const request = require('supertest');
 const { server } = require('../app/app-transaction-script-phase-two');
 const {
-  mockJobPosting,
   mockJobPostingToUpdate,
-  mockJobPostingWithOrgWithFeatured,
-  mockJobPostingWithOrgWithoutFeatured
+  mockJobPostingGoldWithFeatured,
+  mockJobPostingGoldWithoutFeatured,
+  mockJobPostingNormal
 } = require('./mocks');
 
 describe('transaction script route integration tests', () => {
@@ -15,18 +15,26 @@ describe('transaction script route integration tests', () => {
       .expect('Content-Type', /json/)
       .expect(200, done);
   });
-  test('POST /job-posting with featured', done => {
+  test('POST /job-posting gold with featured', done => {
     request(server)
       .post('/job-posting')
-      .send({ jobPosting: mockJobPostingWithOrgWithFeatured })
+      .send({ jobPosting: mockJobPostingGoldWithFeatured })
       .set('Content-Type', 'application/json')
       .set('Accept', 'application/json')
       .expect(201, done);
   });
-  test('POST /job-posting without featured', done => {
+  test('POST /job-posting gold without featured', done => {
     request(server)
       .post('/job-posting')
-      .send({ jobPosting: mockJobPostingWithOrgWithoutFeatured })
+      .send({ jobPosting: mockJobPostingGoldWithoutFeatured })
+      .set('Content-Type', 'application/json')
+      .set('Accept', 'application/json')
+      .expect(500, done);
+  });
+  test('POST /job-posting normal', done => {
+    request(server)
+      .post('/job-posting')
+      .send({ jobPosting: mockJobPostingNormal })
       .set('Content-Type', 'application/json')
       .set('Accept', 'application/json')
       .expect(201, done);
