@@ -47,6 +47,7 @@ mockJobPostingGoldWithFeatured = {
   company: 'Dynamic Systems Incorporated',
   description: 'Let the games begin',
   contact: 'boss@example.com',
+  isFeatured: true,
   organization: {
     type: 'gold',
     featuredRemaining: 2
@@ -59,6 +60,7 @@ mockJobPostingGoldWithoutFeatured = {
   company: 'Dynamic Systems Incorporated',
   description: 'Let the games begin',
   contact: 'boss@example.com',
+  isFeatured: true,
   organization: {
     type: 'gold',
     featuredRemaining: 0
@@ -71,6 +73,7 @@ mockJobPostingNormal = {
   company: 'Dynamic Systems Incorporated',
   description: 'Let the games begin',
   contact: 'boss@example.com',
+  isFeatured: false,
   organization: {
     type: 'normal'
   }
