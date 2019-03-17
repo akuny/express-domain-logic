@@ -8,4 +8,6 @@ const makeJobPosting = (params, cb) => {
   return cb(null, jobPosting);
 };
 
-module.exports = makeJobPosting;
+module.exports = {
+  makeJobPosting
+};

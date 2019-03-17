@@ -77,7 +77,6 @@ app.put('/job-posting/:id', (req, res) => {
     }
     databaseGateway.updateJobPosting(
       validatedJobPosting,
-      req.params.id,
       (err, updatedJobPosting) => {
         if (err) {
           return res
