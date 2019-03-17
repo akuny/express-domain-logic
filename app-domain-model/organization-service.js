@@ -1,5 +1,5 @@
 const databaseGateway = require('./database-gateway');
-const Organization = require('./Organization');
+const Organization = require('./model/Organization');
 
 const getOne = (userId, cb) => {
   databaseGateway.getOneUser(userId, (err, user) => {

@@ -3,11 +3,11 @@ const { version } = require('./config');
 getVersion = version => {
   switch (version) {
     case 'TRANSACTION_SCRIPT_PHASE_ONE':
-      return './app/app-transaction-script-phase-one';
+      return './app-transaction-script/app-phase-one';
     case 'TRANSACTION_SCRIPT_PHASE_TWO':
-      return './app/app-transaction-script-phase-two';
+      return './app-transaction-script/app-phase-two';
     case 'DOMAIN_MODEL':
-      return './app/app-domain-model';
+      return './app-domain-model/app';
   }
 };
 

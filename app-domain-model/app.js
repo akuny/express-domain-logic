@@ -1,5 +1,5 @@
 const express = require('express');
-const { makeJobPosting } = require('job-posting-factory');
+const { makeJobPosting } = require('./job-posting-factory');
 const app = express();
 
 app.use(express.json());
@@ -10,7 +10,8 @@ app.post('/job-posting', (req, res) => {
   // for validating itself. The JobPosting will be either
   // normal or gold, depending on the results of the
   // factory's instantiation
-  makeJobPosting(req.body, (err, jobPosting) => {
+  const jobPostingParams = req.body.jobPosting;
+  makeJobPosting(jobPostingParams, (err, jobPosting) => {
     if (err) {
       res.status(500).send({ error: 'validation error', message: err });
     }

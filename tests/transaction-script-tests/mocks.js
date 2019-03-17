@@ -1,8 +1,8 @@
 const mockDatabase = [
   {
     id: 1,
+    userId: 1,
     title: 'Junior Minion',
-    company: 'Dynamic Systems Incorporated',
     description: 'Brace yourself',
     contact: 'boss@example.com'
   }
@@ -10,16 +10,16 @@ const mockDatabase = [
 
 const mockJobPosting = {
   id: 666,
+  userId: 1,
   title: 'Senior Minion',
-  company: 'Dynamic Systems Incorporated',
   description: 'It all begins soon',
   contact: 'boss@example.com'
 };
 
 const mockJobPostingToUpdate = {
   id: 999,
+  userId: 1,
   title: 'VP of Minions',
-  company: 'Dynamic Systems Incorporated',
   description: 'Let the games begin',
   contact: 'boss@example.com'
 };
@@ -27,15 +27,15 @@ const mockJobPostingToUpdate = {
 const mockUpdatedDatabase = [
   {
     id: 1,
+    userId: 1,
     title: 'Junior Minion',
-    company: 'Dynamic Systems Incorporated',
     description: 'Brace yourself',
     contact: 'boss@example.com'
   },
   {
     id: 999,
+    userId: 1,
     title: 'VP of Minions',
-    company: 'Dynamic Systems Incorporated',
     description: 'Let the games begin',
     contact: 'boss@example.com'
   }
@@ -43,6 +43,7 @@ const mockUpdatedDatabase = [
 
 mockJobPostingGoldWithFeatured = {
   id: 999,
+  userId: 1,
   title: 'VP of Minions',
   company: 'Dynamic Systems Incorporated',
   description: 'Let the games begin',
@@ -56,6 +57,7 @@ mockJobPostingGoldWithFeatured = {
 
 mockJobPostingGoldWithoutFeatured = {
   id: 999,
+  userId: 1,
   title: 'VP of Minions',
   company: 'Dynamic Systems Incorporated',
   description: 'Let the games begin',
@@ -69,6 +71,7 @@ mockJobPostingGoldWithoutFeatured = {
 
 mockJobPostingNormal = {
   id: 999,
+  userId: 1,
   title: 'VP of Minions',
   company: 'Dynamic Systems Incorporated',
   description: 'Let the games begin',

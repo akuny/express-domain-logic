@@ -1,10 +1,9 @@
-const database = require('../app/database-gateway');
+const database = require('../../../app-transaction-script/database-gateway');
 const {
   mockDatabase,
   mockJobPosting,
-  mockJobPostingToUpdate,
-  mockUpdatedDatabase
-} = require('./mocks');
+  mockJobPostingToUpdate
+} = require('../mocks');
 
 describe('basic database operations', () => {
   test('gets all job postings', done => {
@@ -34,12 +33,10 @@ describe('basic database operations', () => {
   test('updates one job posting', done => {
     function cb(err, updatedJobPosting) {
       expect(updatedJobPosting).toEqual(mockJobPostingToUpdate);
-      const newDatabase = database.getDatabase();
-      expect(newDatabase).toEqual(mockUpdatedDatabase);
       done();
     }
 
-    database.updateJobPosting(mockJobPostingToUpdate, 666, cb);
+    database.updateJobPosting(mockJobPostingToUpdate, cb);
   });
   test('deletes one job posting', done => {
     function cb(err, message) {

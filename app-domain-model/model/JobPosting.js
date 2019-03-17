@@ -1,5 +1,5 @@
-const organizationService = require('./organization-service');
-const { saveJobPosting } = require('./database-gateway');
+const organizationService = require('../organization-service');
+const { saveJobPosting } = require('../database-gateway');
 
 class JobPosting {
   constructor(input) {
@@ -14,13 +14,7 @@ class JobPosting {
   }
 
   validate() {
-    if (
-      !this.userId ||
-      !this.title ||
-      !this.company ||
-      !this.description ||
-      !this.contact
-    ) {
+    if (!this.userId || !this.title || !this.description || !this.contact) {
       return false;
     }
     return true;

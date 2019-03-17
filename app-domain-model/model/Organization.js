@@ -1,4 +1,4 @@
-const { updateOrganization } = require('./database-gateway');
+const { updateOrganization } = require('../database-gateway');
 
 class Organization {
   constructor(input) {
