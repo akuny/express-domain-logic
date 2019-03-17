@@ -5,21 +5,20 @@ organizing domain logic in an Express application.
 
 ## Installation
 
-Example though it may be, this application does function. To
-run it, install dependencies and start it up.
+You can run this app, for what it's worth:
 
 ```
-$ npm i
-$ node .
+npm i
+node .
 ```
 
-The application will open in Transaction Script mode by default;
-to set it to Domain Model mode, set the value of `version` in
-`config.js` to `'DOMAIN_MODEL'`.
+The application will open in Transaction Script Phase 1 mode by default;
+to set it to Domain Model mode, change the value of `version` in
+`config.js`.
 
 ## Testing
 
-Run `jest` to test both the Transaction Script and Domain Model
+Run `jest` to test the Transaction Script and Domain Model
 versions of the application.
 
 ## Caveat Emptor
