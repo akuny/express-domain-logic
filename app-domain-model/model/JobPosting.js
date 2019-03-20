@@ -48,7 +48,7 @@ class JobPosting {
       }
       this.organization.useOneFeatured((err, result) => {
         if (err) {
-          return err;
+          return cb(err);
         }
       });
     }
