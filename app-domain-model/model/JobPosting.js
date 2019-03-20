@@ -46,6 +46,11 @@ class JobPosting {
       if (!this.organization.hasFeatured()) {
         return cb('No featured posts left');
       }
+      this.organization.useOneFeatured((err, result) => {
+        if (err) {
+          return err;
+        }
+      });
     }
 
     const jobPosting = {
