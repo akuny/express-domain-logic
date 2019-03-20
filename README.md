@@ -5,26 +5,16 @@ organizing domain logic in an Express server.
 
 ## Installation
 
-<<<<<<< HEAD
-To run it, install dependencies and start it up.
-=======
 You can run this app, for what it's worth:
->>>>>>> d5afbfafc2a2717ae9cbab65f5db42d056952344
 
 ```
 npm i
 node .
 ```
 
-<<<<<<< HEAD
-The application will open in Transaction Script Phase 2 mode by default;
-to change it to Domain Model mode, set the value of `version` in
-`config.js` to `'DOMAIN_MODEL'`.
-=======
 The application will open in Transaction Script Phase 1 mode by default;
 to set it to Domain Model mode, change the value of `version` in
 `config.js`.
->>>>>>> d5afbfafc2a2717ae9cbab65f5db42d056952344
 
 Since this application is fundamentally academic, testing might be of
 greater interest than running it.
