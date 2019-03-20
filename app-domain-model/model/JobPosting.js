@@ -1,6 +1,6 @@
 const Organization = require('./Organization');
 const User = require('./User');
-const databaseGateway = require('../database-gateway');
+const databaseGateway = require('../database/database-gateway');
 
 class JobPosting {
   constructor(input = {}) {

@@ -1,4 +1,4 @@
-const databaseGateway = require('../database-gateway');
+const databaseGateway = require('../database/database-gateway');
 
 class User {
   constructor(input = {}) {
