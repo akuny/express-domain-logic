@@ -1,6 +1,6 @@
-const { version } = require('./config');
+const { version, port } = require('./config');
 
-getVersion = version => {
+const getVersion = version => {
   switch (version) {
     case 'TRANSACTION_SCRIPT_PHASE_ONE':
       return './app-transaction-script/app-phase-one';
@@ -13,6 +13,8 @@ getVersion = version => {
 
 const { server } = require(getVersion(version));
 
-server.listen(3000, () =>
-  console.log(`Server using ${version} listening on port 3000`)
+server.listen(port, () =>
+  console.log(
+    `Server using the ${version} pattern is listening on port ${port}`
+  )
 );

@@ -1,21 +1,23 @@
 # Domain Logic in Express
 
-This is a toy application to demonstrate two of many ways of
-organizing domain logic in an Express application.
+This application demonstrates two of many ways of
+organizing domain logic in an Express server.
 
 ## Installation
 
-Example though it may be, this application does function. To
-run it, install dependencies and start it up.
+To run it, install dependencies and start it up.
 
 ```
-$ npm i
-$ node .
+npm i
+node .
 ```
 
-The application will open in Transaction Script mode by default;
-to set it to Domain Model mode, set the value of `version` in
+The application will open in Transaction Script Phase 2 mode by default;
+to change it to Domain Model mode, set the value of `version` in
 `config.js` to `'DOMAIN_MODEL'`.
+
+Since this application is fundamentally academic, testing might be of
+greater interest than running it.
 
 ## Testing
 
