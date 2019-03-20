@@ -5,19 +5,15 @@ class Organization {
     this.name = input.name;
     this.tier = input.tier;
     this.featuredRemaining = input.featuredRemaining;
+    this.isClean = this.validate();
     return this;
   }
 
-  useOneFeatured(cb) {
-    if (this.featuredRemaining > 0) {
-      this.featuredRemaining--;
-      this.update((err, updatedOrganization) => {
-        if (err) {
-          return cb(err);
-        }
-        return cb(null, updatedOrganization);
-      });
+  validate() {
+    if (!this.name || !this.tier || !this.featuredRemaining) {
+      return false;
     }
+    return true;
   }
 
   read(id) {
@@ -47,6 +43,25 @@ class Organization {
         return cb(null, savedOrganization);
       }
     );
+  }
+
+  hasFeatured() {
+    if (this.featuredRemaining > 0 && this.tier === 'gold') {
+      return true;
+    }
+    return false;
+  }
+
+  useOneFeatured(cb) {
+    if (this.featuredRemaining > 0) {
+      this.featuredRemaining--;
+      this.update((err, updatedOrganization) => {
+        if (err) {
+          return cb(err);
+        }
+        return cb(null, updatedOrganization);
+      });
+    }
   }
 }
 

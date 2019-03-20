@@ -5,7 +5,15 @@ class User {
     this.organizationId = input.organizationId;
     this.firstName = input.firstName;
     this.lastName = input.lastName;
+    this.isClean = this.validate();
     return this;
+  }
+
+  validate() {
+    if (!this.organizationId || this.firstName || this.lastName) {
+      return false;
+    }
+    return true;
   }
 
   read(id) {

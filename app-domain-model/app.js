@@ -1,5 +1,6 @@
 const express = require('express');
 const JobPosting = require('./model/JobPosting');
+
 const app = express();
 app.use(express.json());
 

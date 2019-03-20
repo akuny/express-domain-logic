@@ -41,52 +41,27 @@ class JobPosting {
     this.user = instance;
   }
 
-  reviewFeatured(cb) {
-    if (this.isFeatured) {
-      if (
-        this.organization.tier === 'gold' &&
-        this.organization.featuredRemaining < 1
-      ) {
-        return cb(false, 'Your organization has used all of its job postings');
-      }
-      if (this.organization.tier === 'normal') {
-        return cb(
-          false,
-          'Your tier is normal, so you cannot have featured job postings'
-        );
-      }
-      this.organization.useOneFeatured((err, updatedOrganization) => {
-        if (err) {
-          return cb(false, err);
-        }
-        return cb(true);
-      });
-    } else {
-      return cb(true);
-    }
-  }
-
   create(cb) {
-    this.reviewFeatured((result, errorMessage) => {
-      if (!result) {
-        return cb(errorMessage);
+    if (this.isFeatured) {
+      if (!this.organization.hasFeatured()) {
+        return cb('No featured posts left');
       }
+    }
 
-      const jobPosting = {
-        userId: this.userId,
-        organizationId: this.organizationId,
-        title: this.title,
-        description: this.description,
-        contact: this.contact,
-        isFeatured: this.isFeatured
-      };
+    const jobPosting = {
+      userId: this.userId,
+      organizationId: this.organizationId,
+      title: this.title,
+      description: this.description,
+      contact: this.contact,
+      isFeatured: this.isFeatured
+    };
 
-      databaseGateway.saveJobPosting(jobPosting, (err, savedJobPosting) => {
-        if (err) {
-          return cb('Error saving job posting');
-        }
-        return cb(null, savedJobPosting);
-      });
+    databaseGateway.saveJobPosting(jobPosting, (err, savedJobPosting) => {
+      if (err) {
+        return cb('Error saving job posting');
+      }
+      return cb(null, savedJobPosting);
     });
   }
 }
