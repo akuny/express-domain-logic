@@ -42,6 +42,10 @@ class JobPosting {
   }
 
   create(cb) {
+    if (!this.isClean) {
+      return cb('Validation error');
+    }
+
     if (this.isFeatured) {
       if (!this.organization.hasFeatured()) {
         return cb('No featured posts left');
