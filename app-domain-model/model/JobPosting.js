@@ -1,32 +1,44 @@
-const organizationService = require('../organization-service');
-const { saveJobPosting } = require('../database-gateway');
+const Organization = require('./Organization');
+const User = require('./User');
+const databaseGateway = require('../database-gateway');
 
 class JobPosting {
-  constructor(input) {
+  constructor(input = {}) {
     this.userId = input.userId;
+    this.organizationId = input.organizationId;
     this.title = input.title;
     this.description = input.description;
     this.contact = input.contact;
     this.isFeatured = input.isFeatured;
     this.isClean = this.validate();
-    this.organization;
-    this.getOrganization(this.userId);
+    this.getOrganization(this.organizationId);
+    this.getUser(this.userId);
+    return this;
   }
 
   validate() {
-    if (!this.userId || !this.title || !this.description || !this.contact) {
+    if (
+      !this.userId ||
+      !this.organizationId ||
+      !this.title ||
+      !this.description ||
+      !this.contact
+    ) {
       return false;
     }
     return true;
   }
 
-  getOrganization(userId) {
-    organizationService.getOne(userId, (err, organization) => {
-      if (err) {
-        return err;
-      }
-      this.organization = organization;
-    });
+  getOrganization(id) {
+    const instance = new Organization();
+    instance.read(id);
+    this.organization = instance;
+  }
+
+  getUser(id) {
+    const instance = new User();
+    instance.read(id);
+    this.user = instance;
   }
 
   reviewFeatured(cb) {
@@ -54,7 +66,7 @@ class JobPosting {
     }
   }
 
-  save(cb) {
+  create(cb) {
     this.reviewFeatured((result, errorMessage) => {
       if (!result) {
         return cb(errorMessage);
@@ -62,13 +74,14 @@ class JobPosting {
 
       const jobPosting = {
         userId: this.userId,
+        organizationId: this.organizationId,
         title: this.title,
         description: this.description,
         contact: this.contact,
         isFeatured: this.isFeatured
       };
 
-      saveJobPosting(jobPosting, (err, savedJobPosting) => {
+      databaseGateway.saveJobPosting(jobPosting, (err, savedJobPosting) => {
         if (err) {
           return cb('Error saving job posting');
         }

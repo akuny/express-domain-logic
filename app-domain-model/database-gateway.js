@@ -1,21 +1,21 @@
 module.exports = {
   saveJobPosting(jobPosting, cb) {
     if (!jobPosting) {
-      cb('No jobPosting to save');
+      return cb('No jobPosting to save');
     }
     jobTable.push(jobPosting);
-    cb(null, jobPosting);
+    return cb(null, jobPosting);
   },
 
   getAllJobPostings(cb) {
-    cb(null, jobTable);
+    return cb(null, jobTable);
   },
 
   getOneJobPosting(id, cb) {
     const requestedJobPosting = jobTable.find(obj => {
       return obj.id === id;
     });
-    cb(null, requestedJobPosting);
+    return cb(null, requestedJobPosting);
   },
 
   updateJobPosting(jobPosting, cb) {
@@ -29,7 +29,7 @@ module.exports = {
 
     let indexToChange = idSearch(jobPosting.id, jobTable);
     jobTable.splice(indexToChange, 1, jobPosting);
-    cb(null, jobPosting);
+    return cb(null, jobPosting);
   },
 
   deleteJobPosting(id, cb) {
@@ -39,21 +39,21 @@ module.exports = {
       }
     }
     delete (jobTable, id);
-    cb(null, 'Job posting deleted');
+    return cb(null, 'Job posting deleted');
   },
 
   getOneUser(id, cb) {
     const requestedUser = userTable.find(obj => {
       return obj.id === id;
     });
-    cb(null, requestedUser);
+    return cb(null, requestedUser);
   },
 
   getOneOrganization(id, cb) {
     const requestedOrganization = organizationTable.find(obj => {
       return obj.id === id;
     });
-    cb(null, requestedOrganization);
+    return cb(null, requestedOrganization);
   },
 
   updateOrganization(organization, cb) {
@@ -67,7 +67,7 @@ module.exports = {
 
     let indexToChange = idSearch(organization.id, organizationTable);
     organizationTable.splice(indexToChange, 1, organization);
-    cb(null, organization);
+    return cb(null, organization);
   },
 
   getDatabase() {
@@ -79,6 +79,7 @@ let jobTable = [
   {
     id: 1,
     userId: 1,
+    organizationId: 7,
     title: 'Junior Minion',
     description: 'Brace yourself',
     contact: 'boss@example.com'
