@@ -10,10 +10,10 @@
   "author": "akuny",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "*"
   },
   "devDependencies": {
-    "jest": "^24.1.0",
-    "supertest": "^3.4.2"
+    "jest": "*",
+    "supertest": "*"
   }
 }
